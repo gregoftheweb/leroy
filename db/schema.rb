@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_15_233504) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_18_012002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "players", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,8 +30,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_15_233504) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "gender_id"
     t.index ["email"], name: "index_players_on_email", unique: true
+    t.index ["gender_id"], name: "index_players_on_gender_id"
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "players", "genders"
 end
