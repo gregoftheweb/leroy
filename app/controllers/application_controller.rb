@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::Base
-  # This line ensures Devise helper methods are available in your views
-  helper_method :user_signed_in?, :current_user
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:age])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:age])
+  end
 end
