@@ -60,6 +60,11 @@ group :development do
   # gem "spring"
 end
 
+group :development, :test do
+  gem "rspec-rails"
+  gem "shoulda-matchers", "~> 4.0"
+end
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
@@ -67,3 +72,9 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+
+gem "faker"
+
+group :test, :development do
+  gem "factory_bot_rails"
+end

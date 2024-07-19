@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_18_012002) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_19_051349) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_18_012002) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.decimal "payout", precision: 10, scale: 2
+    t.string "status", default: [], array: true
+    t.string "age_range", default: [], array: true
+    t.bigint "gender_id", null: false
+    t.bigint "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gender_id"], name: "index_offers_on_gender_id"
+    t.index ["player_id"], name: "index_offers_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -30,11 +44,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_18_012002) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "gender_id"
+    t.bigint "gender_id", null: false
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["gender_id"], name: "index_players_on_gender_id"
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "offers", "genders"
+  add_foreign_key "offers", "players"
   add_foreign_key "players", "genders"
 end

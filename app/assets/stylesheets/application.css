@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+
+/* Styling for flash messages */
+.notice {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #dc9935;
+  background-color: #f8f8d7;
+  color: #721c24;
+  border-radius: 5px;
+}
+/* Ensure the logo and navbar text are aligned correctly */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand .logo {
+    height: 60px; /* Adjust as needed */
+    width: auto;
+    margin-right: 1rem; /* Space between logo and text */
+  }
+  
+  .navbar-nav {
+    margin-left: auto; /* Pushes the nav items to the right side */
+  }
+  
+  .navbar-nav .nav-item {
+    margin-left: .5rem; /* Space between nav items */
+  }
+  
+  .custom-small-text {
+    font-size: 0.90rem; /* Adjust the size as needed */
+  }
