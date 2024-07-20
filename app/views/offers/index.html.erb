@@ -2,12 +2,12 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Payout</th>
-      <th>Status</th>
-      <th>Age Range</th>
-      <th>Target Gender</th>
+      <th class="sortable">Title</th>
+      <th class="sortable">Description</th>
+      <th class="sortable">Payout</th>
+      <th class="sortable">Status</th>
+      <th class="sortable">Age Range</th>
+      <th class="sortable">Target Gender</th>
       <th>Claim</th>
     </tr>
   </thead>
@@ -18,18 +18,19 @@
         <td><%= offer.description %></td>
         <td><%= number_to_currency(offer.payout) %></td>
         <td><%= offer.status.join(', ') %></td>
- <!-- This should work if status is an array -->
+        <!-- This should work if status is an array -->
         <td><%= offer.age_range.join(', ') %></td>
         <td><%= offer.gender.name if offer.gender %></td>
         <td>
           <% if offer.player.present? %>
             <% if offer.player == current_player %>
               Claimed by ME
+              <%= button_to 'Drop', drop_offer_path(offer), method: :patch, remote: true, class: 'drop-button' %>
             <% else %>
               Claimed by <%= offer.player.username %>
             <% end %>
           <% else %>
-            <%= link_to 'Claim Offer', offer_path(offer), class: 'btn btn-primary' %>
+            <%= button_to 'Claim', claim_offer_path(offer), method: :patch, remote: true, class: 'claim-button' %>
           <% end %>
         </td>
       </tr>

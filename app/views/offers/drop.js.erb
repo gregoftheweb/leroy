@@ -1,0 +1,17 @@
+$("#offer_<%= @offer.id %>").html(
+"
+<td><%= @offer.title %></td>
+\
+<td><%= @offer.description %></td>
+\
+<td><%= number_to_currency(@offer.payout) %></td>
+\
+<td><%= @offer.status.join(', ') %></td>
+\
+<td><%= @offer.age_range.join(', ') %></td>
+\
+<td><%= @offer.gender.name if @offer.gender %></td>
+\
+<td><%= button_to 'Claim', claim_offer_path(@offer), method: :patch, remote: true, class: 'claim-button' %></td>
+"
+);

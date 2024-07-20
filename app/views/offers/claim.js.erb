@@ -1,0 +1,13 @@
+$("#offer_<%= @offer.id %>").html("
+<p><strong>Title:</strong> <%= @offer.title %></p>
+\
+<p><strong>Description:</strong> <%= @offer.description %></p>
+\
+<p><strong>Payout:</strong> <%= @offer.payout %></p>
+\
+<p><strong>Status:</strong> <%= @offer.status.join(', ') %></p>
+\
+<p><strong>Age Range:</strong> <%= @offer.age_range.join(', ') %></p>
+\
+<p>Claimed by: <%= @offer.player.email %></p>
+");

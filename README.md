@@ -34,7 +34,7 @@ Things you may want to cover:
 
 | Tech reqs                                                    | UI Behavior reqs                                             |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Create Offers model<br>\- Offer Title<br>\- Description<br>\- has\_many Genders<br>\- target age bracket<br>\- belongs\_to User<br><br>Create Genders table<br>\- gender<br>\- id<br><br>Extend Player model to have<br>\- has\_many offers<br>\- has genders<br>\- age \(int\)<br><br>Actions to select an offer and assign it to a Player. | List of offers page<br>\- buttons to select offer<br>\- change to "chosen" label if Player has already picked the offer\.<br><br>Maybe the ability to click into the offer details view...<br><br>Profile Page / sign up<br>\- select Age<br>\- Select gender |
+| Create Offers model<br>\- Offer Title<br>\- Description<br>\- belongs_to Genders<br>\- target age bracket<br>-status<br>Create Genders table<br>\- gender<br>\- id<br><br>Extend Player model to have<br>\- has\_many offers<br>\- has genders<br>\- age \(int\)<br><br>Actions to select an offer and assign it to a Player. | List of offers page<br>\- buttons to select offer<br>\- change to "chosen" label if Player has already picked the offer\.<br><br>Maybe the ability to click into the offer details view...<br><br>Profile Page / sign up<br>\- select Age<br>\- Select gender |
 
 
 
