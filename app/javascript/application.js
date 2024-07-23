@@ -1,10 +1,19 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+// application.js
+
 import "@hotwired/turbo-rails"
 import "controllers"
-import "sortable_table"
 
-//= require jquery
-//= require jquery_ujs
-//= require_tree .
+// Import Bootstrap and Bootstrap Table
+import 'bootstrap';  // Import Bootstrap
+import 'bootstrap-table';  // Import Bootstrap Table
 
+import './table_sorting';  // Import your custom JavaScript
 
+// Initialize bootstrap-table when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof $ !== 'undefined') {
+    $('.table').bootstrapTable();
+  } else {
+    console.error('jQuery is not loaded');
+  }
+});
