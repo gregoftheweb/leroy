@@ -1,13 +1,13 @@
 <h1>Offers</h1>
-<table class="table">
+<table class="table" data-toggle="table" data-sortable="true">
   <thead>
     <tr>
-      <th class="sortable">Title</th>
-      <th class="sortable">Description</th>
-      <th class="sortable">Payout</th>
-      <th class="sortable">Status</th>
-      <th class="sortable">Age Range</th>
-      <th class="sortable">Target Gender</th>
+      <th data-field="title" data-sortable="true">Title</th>
+      <th data-field="description" data-sortable="true">Description</th>
+      <th data-field="payout" data-sortable="true"  data-sorter="moneySorter">Payout</th>
+      <th data-field="status" data-sortable="true">Status</th>
+      <th data-field="ageRange" data-sortable="true">Age Range</th>
+      <th data-field="gender" data-sortable="true">Target Gender</th>
       <th>Claim</th>
     </tr>
   </thead>
@@ -18,7 +18,6 @@
         <td><%= offer.description %></td>
         <td><%= number_to_currency(offer.payout) %></td>
         <td><%= offer.status.join(', ') %></td>
-        <!-- This should work if status is an array -->
         <td><%= offer.age_range.join(', ') %></td>
         <td><%= offer.gender.name if offer.gender %></td>
         <td>
