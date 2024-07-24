@@ -20,5 +20,65 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.19.1/bootstrap-table.min.js"></script>
+    <script>
+      function moneySorter(a, b) {
+          // Remove currency symbols and commas, then convert to float
+          console.log("fired the sorter");
+          var aValue = parseFloat(a.replace(/[^0-9.-]+/g, ''));
+          var bValue = parseFloat(b.replace(/[^0-9.-]+/g, ''));
+          return aValue - bValue;
+        }
+
+
+           $(document).ready(function() {
+
+
+            if (typeof $ !== 'undefined' && $.fn.bootstrapTable) {
+
+              $('.table').bootstrapTable({
+                columns: [
+                {
+                  field: 'title',
+                  title: 'Title',
+                  sortable: true
+                },
+                {
+                  field: 'description',
+                  title: 'Description',
+                  sortable: true
+                },
+                {
+                  field: 'payout',
+                  title: 'Payout',
+                  sortable: true,
+                  sorter: moneySorter // Register the custom sorter
+                },
+                {
+                  field: 'status',
+                  title: 'Status',
+                  sortable: true
+                },
+                {
+                  field: 'ageRange',
+                  title: 'Age Range',
+                  sortable: true
+                },
+                {
+                  field: 'gender',
+                  title: 'Target Gender',
+                  sortable: true
+                },
+                {
+                  field: 'claim',
+                  title: 'Claim',
+                  sortable: false
+                }
+              ]
+              });
+            } else {
+              console.error('jQuery or Bootstrap Table is not loaded');
+            }
+          });
+    </script>
   </body>
 </html>
