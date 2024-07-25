@@ -4,6 +4,13 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
+
+    if params[:filter] == "player"
+      if current_player
+        @offers = @offers.where(gender: current_player.gender)
+        @offers = @offers.select { |offer| offer_in_age_range?(offer) }
+      end
+    end
   end
 
   def show
@@ -51,5 +58,18 @@ class OffersController < ApplicationController
 
   def set_offer
     @offer = Offer.find(params[:id])
+  end
+
+  def offer_in_age_range?(offer)
+    offer.age_range.any? { |range| age_in_range?(range) }
+  end
+
+  def age_in_range?(range)
+    if range == "55 and up"
+      current_player.age >= 55
+    else
+      min_age, max_age = range.split("-").map(&:to_i)
+      min_age <= current_player.age && current_player.age <= max_age
+    end
   end
 end

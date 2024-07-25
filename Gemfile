@@ -78,3 +78,5 @@ gem "faker"
 group :test, :development do
   gem "factory_bot_rails"
 end
+
+gem "rails-controller-testing"
