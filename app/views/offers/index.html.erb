@@ -1,4 +1,4 @@
-<h1>Offers</h1>
+<h1>Leroy Jenkins Special Fun Filled Adventure Offers</h1>
 <div class="container">
   <!-- Tabs -->
   <ul class="nav nav-tabs" id="offerTabs" role="tablist">
@@ -6,7 +6,7 @@
       <%= link_to 'All Offers', offers_path(filter: 'all'), class: "nav-link #{'active' if params[:filter] == 'all'}", role: "tab" %>
     </li>
     <li class="nav-item" role="presentation">
-      <%= link_to 'Filtered Offers', offers_path(filter: 'player'), class: "nav-link #{'active' if params[:filter] == 'player'}", role: "tab" %>
+      <%= link_to 'Offers Just For Me', offers_path(filter: 'player'), class: "nav-link #{'active' if params[:filter] == 'player'}", role: "tab" %>
     </li>
   </ul>
   <!-- Tab Content -->
