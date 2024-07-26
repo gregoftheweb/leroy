@@ -21,6 +21,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.19.1/bootstrap-table.min.js"></script>
     <script>
+      // included the javascript for table sorting here so that it gets executed at right before the body closing tag
+      // therefore the DOM is fully loaded and the     $(document).ready(function()   can execute.
+      // putting it in the assets/javascript folder would place it in the head of the page and before DOM is fully loaded.
+      // there may be more elegant solutions to properly fix this, but I moved on to other problems to solve in ths project.
+
+      // create Sorter for $$ sorting correctly
       function moneySorter(a, b) {
           // Remove currency symbols and commas, then convert to float
           console.log("fired the sorter");
@@ -30,55 +36,56 @@
         }
 
 
-           $(document).ready(function() {
+      // Set up the table sorting
+        $(document).ready(function() {
 
 
-            if (typeof $ !== 'undefined' && $.fn.bootstrapTable) {
+        if (typeof $ !== 'undefined' && $.fn.bootstrapTable) {
 
-              $('.table').bootstrapTable({
-                columns: [
-                {
-                  field: 'title',
-                  title: 'Title',
-                  sortable: true
-                },
-                {
-                  field: 'description',
-                  title: 'Description',
-                  sortable: true
-                },
-                {
-                  field: 'payout',
-                  title: 'Payout',
-                  sortable: true,
-                  sorter: moneySorter // Register the custom sorter
-                },
-                {
-                  field: 'status',
-                  title: 'Status',
-                  sortable: true
-                },
-                {
-                  field: 'ageRange',
-                  title: 'Age Range',
-                  sortable: true
-                },
-                {
-                  field: 'gender',
-                  title: 'Target Gender',
-                  sortable: true
-                },
-                {
-                  field: 'claim',
-                  title: 'Claim',
-                  sortable: false
-                }
-              ]
-              });
-            } else {
-              console.error('jQuery or Bootstrap Table is not loaded');
+          $('.table').bootstrapTable({
+            columns: [
+            {
+              field: 'title',
+              title: 'Title',
+              sortable: true
+            },
+            {
+              field: 'description',
+              title: 'Description',
+              sortable: true
+            },
+            {
+              field: 'payout',
+              title: 'Payout',
+              sortable: true,
+              sorter: moneySorter // Register the custom sorter
+            },
+            {
+              field: 'status',
+              title: 'Status',
+              sortable: true
+            },
+            {
+              field: 'ageRange',
+              title: 'Age Range',
+              sortable: true
+            },
+            {
+              field: 'gender',
+              title: 'Target Gender',
+              sortable: true
+            },
+            {
+              field: 'claim',
+              title: 'Claim',
+              sortable: false
             }
+          ]
           });
+        } else {
+          console.error('jQuery or Bootstrap Table is not loaded');
+        }
+      });
     </script>
   </body>
 </html>

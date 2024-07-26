@@ -14,12 +14,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_19_051349) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  # the genders schema will hold the set of genders a player can select from
   create_table "genders", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  #  offers belong to one player and also have a specific age and gender
   create_table "offers", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -34,6 +36,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_19_051349) do
     t.index ["player_id"], name: "index_offers_on_player_id"
   end
 
+  # Players have an age and gender specific for them.
   create_table "players", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

@@ -1,3 +1,23 @@
+<!-- 
+Heart of the app
+
+Includes two tabbed views depending on whether the player is viewing ALL offers
+or just the offers filtered for their Gender and Age range.
+
+Using Bootstrap Table.
+
+This was a bit tricky to get fully functional.  The problem lay in a page lifecycle issue, 
+putting the javascript in the normal header location meant that the DOM was not yet loaded
+when the table wanted to light up.  Data wouldn't show until a page refresh was done, then
+sorting wouldn't light up until a page refresh.
+
+The fix was to put the page javascript right down above the </body> tag.  ONce I did that 
+everything lit up easy peasy.
+
+I put the js in the /views/layouts/application.html.erb file, there is probably a more elegant 
+solution, but I moved on to other problems to solve.
+
+  -->
 <h1>Leroy Jenkins Special Fun Filled Adventure Offers</h1>
 <div class="container">
   <!-- Tabs -->
