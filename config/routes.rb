@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: "home#index"  # Set the root of your application to a different controller and action
 
-  devise_for :players
-  # This assumes you have resources for PlayersController
+  devise_for :players, controllers: { registrations: "players/registrations" }
+
   resources :players, only: [:edit, :update]
 
   # Resourceful routes for offers, including custom member route for claiming offers

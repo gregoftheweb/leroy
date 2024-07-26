@@ -4,6 +4,29 @@
 
 ## Influence Mobile - Developer Assessment
 
+**General Summary of the Great Leroy Jenkin's QuestLink application:**
+
+Hello, I had fun creating this little application.  The purpose of this app is to allow you, the grand questor that you are, to choose an adventure offer from the Great Leroy Jenkins.  You will have a wide variety of quests from which to choose, they are even sorted for your age and gender.
+
+In creating this app I made some decisions.
+
+1. I made my own seed file (ergo the nature of the offers)
+2. I chose to keep it Rails front end and of course Rails backend.  Incorporating REACT as the front end was slowing me down too much.
+3. I employed Devise gem for my user management - this gave me all the user login/logout/profile functionality OOTB.
+4. I leveraged bootstrap because it is a great UI frontend framework.
+
+I hope you like my little application.  
+
+Thanks,
+
+Greg
+
+
+
+**note:** as you test the app, be aware that the filtering on the combination of age and gender may result in an empty set for some of those pairings with only 100 items in the seed.  You could increase the seeding to 1000 or so to reduce the likelihood of this occurrence.
+
+
+
 **User Story breakdown of requirements.**
 
 **User story 1:** As a player I need to be able to sign in / register with my unique user name and password.
