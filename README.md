@@ -27,7 +27,7 @@ Greg
 
 
 
-**User Story breakdown of requirements.**
+## **User Story breakdown of requirements.**
 
 **User story 1:** As a player I need to be able to sign in / register with my unique user name and password.
 
@@ -61,7 +61,7 @@ Greg
 
 
 
-**Implementation - Create a new app with PostgresSQL db backend**
+## **Implementation - Create a new app with PostgresSQL db backend**
 
 Before core development can begin the project requires PostgreSQL and other items installed and configured.
 
@@ -119,7 +119,7 @@ Before core development can begin the project requires PostgreSQL and other item
    1. *rails server*
    2. Open your browser and navigate to `http://localhost:3000`.
 
-**Implementation: Application approach and decisions**
+## **Implementation: Application approach and decisions**
 
 I had initially wanted to implement a REACT front end to show off my REACT skills, but I found the actual architecture and setup was slowing me down too much so I decided to move forward with a RAILS backend and frontend.
 
@@ -128,7 +128,7 @@ I did decide to use several industry standard libraries to help speed up my proj
 1. **Devise** - I have created user login flows in the past and it is annoying and repetitive. Devise simplifies user management in Rails by providing a set of authentication features, including sign-up, login, and password recovery, out of the box. 
 2. **Bootstrap** - Bootstrap is just great and I love the grid system so it was an obvious choice for me. Also because I wasn't using REACT, Bootstrap provides built in AJAX support, which I wanted to employ for the claim/drop functionality.
 
-**Set up Devise and Player Model**
+#### **Set up Devise and Player Model**
 
 1. add gem for devise  in the gem file
    1. *gem 'devise'*
@@ -196,11 +196,11 @@ end
 
 11. Test login and logout etc.
 
-**Styling Player login flows**
+#### **Styling Player login flows**
 
 At this time I spent some effort to make the login flow look better.  I implemented Bootstrap, set the grid layout the way I wanted and changed fonts etc.  I also updated the notification/alert dialog to be more pleasing.
 
-**Offers list page setup and design:**
+#### **Offers list page setup and design:**
 
 1. Create offers model
 
@@ -317,7 +317,7 @@ At this time I spent some effort to make the login flow look better.  I implemen
 
    5. view your page: http://localhost:3000/offers
 
-**Milestone check**
+#### **Milestone check**
 
 At this point the basic app is complete.  Let's review.
 
@@ -328,7 +328,7 @@ At this point the basic app is complete.  Let's review.
 
 
 
-**Additional features and briefer comments**
+## **Additional features and briefer comments**
 
 - Added in Navbar with bootstrap navbar class.
 
